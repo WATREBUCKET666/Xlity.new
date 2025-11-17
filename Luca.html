@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Simple Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #B3DFFC; /* Baby blue */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        /* Rainbow text animation */
+        #discord-handle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 6s ease infinite;
+            margin-bottom: 20px;
+            word-break: break-word;
+        }
+
+        @keyframes rainbow {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        /* Rainbow button animation */
+        button {
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400% 400%;
+            color: white;
+            animation: rainbow 6s ease infinite;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        /* Responsive for small screens */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            #discord-handle {
+                font-size: 1.2rem;
+            }
+
+            button {
+                width: 100%;
+                padding: 12px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello</h1>
+    <p id="discord-handle">xjty22</p>
+    <button onclick="copyDiscord()">Copy Discord</button>
+
+    <footer>Made by xjty22</footer>
+
+    <script>
+        function copyDiscord() {
+            const handle = document.getElementById('discord-handle').textContent;
+            navigator.clipboard.writeText(handle).then(() => {
+                alert('Discord handle copied!');
+            }).catch(err => {
+                alert('Failed to copy!');
+                console.error(err);
+            });
+        }
+    </script>
+</body>
+</html>
